@@ -11,6 +11,32 @@ type ContentCollectionsResponse =
       error?: string;
     };
 
+const toErrorMessage = (axios: any, error: unknown, fallback: string) => {
+  if (axios.isAxiosError(error)) {
+    const apiError = error.response?.data?.error;
+
+    if (typeof apiError === "string") {
+      return apiError;
+    }
+
+    if (apiError && typeof apiError === "object" && "message" in apiError) {
+      const nestedMessage = (apiError as { message?: unknown }).message;
+
+      if (typeof nestedMessage === "string") {
+        return nestedMessage;
+      }
+    }
+
+    return error.message || fallback;
+  }
+
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return fallback;
+};
+
 export const useContentCollections = () => {
   const [collections, setCollections] = useState<DemoCollections | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -27,9 +53,9 @@ export const useContentCollections = () => {
 
     const loadCollections = async () => {
       setIsLoading(true);
+      const { default: axios } = await import("axios");
 
       try {
-        const { default: axios } = await import("axios");
         const response = await axios.get<ContentCollectionsResponse>("/api/content");
 
         if (mounted && response.data.ok) {
@@ -40,7 +66,7 @@ export const useContentCollections = () => {
         }
       } catch (requestError) {
         if (mounted) {
-          const message = "Unable to load live content.";
+          const message = toErrorMessage(axios, requestError, "Unable to load live content.");
           setError(message);
           setCollections(null);
           void requestError;

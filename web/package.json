@@ -9,11 +9,13 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@sanity/client": "latest",
     "autoprefixer": "latest",
     "clsx": "latest",
     "framer-motion": "latest",
     "gatsby": "latest",
     "gatsby-plugin-postcss": "latest",
+    "axios": "latest",
     "lucide-react": "latest",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
