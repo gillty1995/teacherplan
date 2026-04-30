@@ -9,10 +9,12 @@ TeacherPlan is a Gatsby + Sanity education portal for managing students, lessons
 - Playwright smoke testing
 
 ## Live Links
-**Landing Page + Student Portal**
-https://teacherplan-web.vercel.app/
-**Sanity CMS for Teachers**
-https://teacherplan.sanity.studio/
+
+- **Landing Page + Student Portal**
+  https://teacherplan-web.vercel.app/
+
+- **Sanity CMS for Teachers**
+  https://teacherplan.sanity.studio/
 
 ## Repo Layout
 
