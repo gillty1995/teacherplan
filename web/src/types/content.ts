@@ -69,6 +69,15 @@ export interface EnrollmentRequest {
   submittedDate: string;
 }
 
+export interface EnrollmentRequestPayload {
+  studentName: string;
+  guardianName: string;
+  guardianEmail: string;
+  gradeLevel: string;
+  programInterest: Program;
+  message: string;
+}
+
 export interface DemoCollections {
   students: Student[];
   lessons: Lesson[];

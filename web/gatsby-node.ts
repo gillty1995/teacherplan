@@ -1,6 +1,5 @@
 import type { GatsbyNode } from "gatsby";
 import path from "path";
-import { submitEnrollmentToSanity } from "./src/server/enrollment";
 
 export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
   const { createPage } = actions;
@@ -31,6 +30,9 @@ export const onCreateDevServer = ({ app }: { app: any }) => {
   app.use("/api/content", json());
   app.post("/api/enrollment", async (req: any, res: any) => {
     try {
+      const { submitEnrollmentToSanity } = require("./src/server/enrollment") as {
+        submitEnrollmentToSanity: (payload: unknown) => Promise<{ ok: boolean; requestId?: string }>;
+      };
       const result = await submitEnrollmentToSanity(req.body);
       res.status(200).json(result);
     } catch (error) {

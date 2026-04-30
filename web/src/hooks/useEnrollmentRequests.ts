@@ -1,7 +1,5 @@
 import { useState } from "react";
-import type { SignupFormValues } from "../components/signup-form/types";
-
-export interface EnrollmentRequestPayload extends SignupFormValues {}
+import type { EnrollmentRequestPayload } from "../types/content";
 
 export interface EnrollmentRequestResult {
   ok: boolean;

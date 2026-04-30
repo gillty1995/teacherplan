@@ -8,6 +8,10 @@ TeacherPlan is a Gatsby + Sanity education portal for managing students, lessons
 - framer-motion polish for high-signal interactions
 - Playwright smoke testing
 
+## Sanity CMS for Teachers
+
+https://teacherplan.sanity.studio/
+
 ## Repo Layout
 
 - `web/` - Gatsby frontend

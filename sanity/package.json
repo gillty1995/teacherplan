@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "@sanity/client": "latest",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "sanity": "latest",
     "styled-components": "^6.1.19"
   },

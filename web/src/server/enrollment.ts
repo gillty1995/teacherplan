@@ -1,5 +1,5 @@
 import { createClient } from "@sanity/client";
-import type { EnrollmentRequestPayload } from "../hooks/useEnrollmentRequests";
+import type { EnrollmentRequestPayload } from "../types/content";
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || process.env.GATSBY_SANITY_PROJECT_ID;
 const dataset = process.env.SANITY_STUDIO_DATASET || process.env.GATSBY_SANITY_DATASET || "production";
