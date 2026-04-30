@@ -1,0 +1,21 @@
+{
+  "name": "teacherplan-sanity",
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "@sanity/client": "latest",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "sanity": "latest",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
