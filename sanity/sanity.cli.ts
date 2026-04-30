@@ -4,5 +4,6 @@ export default defineCliConfig({
   api: {
     projectId: process.env.SANITY_STUDIO_PROJECT_ID || "teacherplan-demo",
     dataset: process.env.SANITY_STUDIO_DATASET || "production"
-  }
+  },
+  studioHost: "teacherplan"
 });

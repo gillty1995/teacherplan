@@ -3,30 +3,29 @@
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "CI=1 gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "autoprefixer": "latest",
     "clsx": "latest",
     "framer-motion": "latest",
     "gatsby": "latest",
     "gatsby-plugin-postcss": "latest",
-    "gatsby-source-sanity": "latest",
     "lucide-react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwind-merge": "latest"
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "postcss": "latest",
+    "tailwind-merge": "latest",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@playwright/test": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "^3.4.17",
     "typescript": "latest"
   }
 }
