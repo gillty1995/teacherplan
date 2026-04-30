@@ -9,23 +9,29 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "autoprefixer": "latest",
     "clsx": "latest",
     "framer-motion": "latest",
     "gatsby": "latest",
     "gatsby-plugin-postcss": "latest",
     "lucide-react": "latest",
+<<<<<<< Updated upstream
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwind-merge": "latest"
+=======
+    "postcss": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwind-merge": "latest",
+    "tailwindcss": "^3.4.17"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@playwright/test": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "^3.4.17",
     "typescript": "latest"
   }
 }
