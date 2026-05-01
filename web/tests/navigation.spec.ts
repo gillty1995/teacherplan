@@ -17,6 +17,10 @@ test("login redirects to the dashboard with teacher credentials", async ({ page 
 
   await expect(page).toHaveURL(/\/app\/dashboard\/?$/);
   await expect(page.getByRole("heading", { name: "Dashboard overview" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open Sanity Studio" })).toHaveAttribute(
+    "href",
+    "https://teacherplan.sanity.studio/"
+  );
 });
 
 test("student lookup opens a profile with the portal code", async ({ page }) => {
