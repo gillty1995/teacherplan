@@ -1,22 +1,13 @@
 import React, { type PropsWithChildren } from "react";
 import { Link } from "gatsby";
-import { LogOut, LayoutDashboard, BookOpen, Megaphone, School, FileText, Menu } from "lucide-react";
-import { navigate } from "gatsby";
+import { ExternalLink, LogOut, Menu } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/cn";
-import { useAuth } from "../../hooks/useAuth";
-
-const navItems = [
-  { to: "/app/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/app/students", label: "Students", icon: School },
-  { to: "/app/lessons", label: "Lessons", icon: BookOpen },
-  { to: "/app/resources", label: "Resources", icon: FileText },
-  { to: "/app/announcements", label: "Announcements", icon: Megaphone }
-];
+import { DASHBOARD_SHELL_COPY } from "./constants";
+import { useDashboardShell } from "./hooks/useDashboardShell";
 
 export const DashboardShell = ({ children }: PropsWithChildren) => {
-  const { logout } = useAuth();
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+  const { pathname, navItems, studioHref, handleLogout } = useDashboardShell();
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -30,9 +21,11 @@ export const DashboardShell = ({ children }: PropsWithChildren) => {
             </div>
 
             <div className="mb-6 rounded-3xl bg-slate-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Teacher Mode</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                {DASHBOARD_SHELL_COPY.roleLabel}
+              </p>
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Manage students, lessons, progress reports, and announcements from one polished dashboard.
+                {DASHBOARD_SHELL_COPY.description}
               </p>
             </div>
 
@@ -54,17 +47,21 @@ export const DashboardShell = ({ children }: PropsWithChildren) => {
               ))}
             </nav>
 
-            <div className="mt-auto pt-6">
+            <div className="mt-6 space-y-3 pt-6">
+              <Button asChild variant="secondary" className="w-full justify-start rounded-2xl">
+                <a href={studioHref} target="_blank" rel="noreferrer">
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  {DASHBOARD_SHELL_COPY.studioButtonLabel}
+                </a>
+              </Button>
+
               <Button
                 variant="outline"
                 className="w-full justify-start rounded-2xl"
-                onClick={() => {
-                  logout();
-                  void navigate("/login", { replace: true });
-                }}
+                onClick={handleLogout}
               >
                 <LogOut className="mr-2 h-4 w-4" />
-                Logout
+                {DASHBOARD_SHELL_COPY.logoutButtonLabel}
               </Button>
             </div>
           </div>
@@ -79,7 +76,7 @@ export const DashboardShell = ({ children }: PropsWithChildren) => {
               </div>
               <button className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 lg:hidden">
                 <Menu className="h-4 w-4" />
-                Menu
+                {DASHBOARD_SHELL_COPY.menuButtonLabel}
               </button>
             </div>
           </div>
