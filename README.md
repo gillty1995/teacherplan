@@ -61,3 +61,9 @@ If those are not set, the site still renders from local fallback content so the 
 ## Auth Note
 
 The dashboard uses a lightweight local sign-in flow with Gatsby client-side route guarding and localStorage-based session state. Sanity Studio handles content editing and publishing.
+
+## Testing
+
+To test in dev: PLAYWRIGHT_BASE_URL=http://localhost:8000 npm run test:e2e
+
+To test in prod: npm run test:e2e
